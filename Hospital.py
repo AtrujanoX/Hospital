@@ -20,16 +20,19 @@ w = None
 
 class New_Toplevel:
 
+
     def __init__(self, top=None):
         top.geometry("480x320+0+0")
         top.title("Hospital")
-
-
         self.menuPrincipal(top)
 
     def clear(self, top):
-        for wi in top.winfo_children():
-            wi.destroy()
+        for widget in top.winfo_children():
+            widget.destroy()
+
+    def configurar(self, top):
+        for widget in top.winfo_children():
+            widget.configure(borderwidth=0, highlightthickness=0, activebackground="#A0A0A0")
 
     def menuPrincipal(self,top):
         self.clear(top)
@@ -53,38 +56,29 @@ class New_Toplevel:
         self._img18 = ImageTk.PhotoImage(Image.open("images/bot_03.png"))
 
         # Header
-        self.img01 = Label(top, image=self._img01, borderwidth=0)
+        self.img01 = Label(top, image=self._img01)
         # CoreButtons
-        self.img02 = Button(top, image=self._img02, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuCocina(top))
-        self.img03 = Label(top, image=self._img03, borderwidth=0)
-        self.img04 = Button(top, image=self._img04, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuMedicamentos(top))
-        self.img05 = Label(top, image=self._img05, borderwidth=0)
-        self.img06 = Button(top, image=self._img06, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuCunero(top))
+        self.img02 = Button(top, image=self._img02, command=lambda: self.menuCocina(top))
+        self.img03 = Label(top, image=self._img03)
+        self.img04 = Button(top, image=self._img04, command=lambda: self.menuMedicamentos(top))
+        self.img05 = Label(top, image=self._img05)
+        self.img06 = Button(top, image=self._img06, command=lambda: self.menuCunero(top))
 
-        self.img07 = Label(top, image=self._img07, borderwidth=0)
+        self.img07 = Label(top, image=self._img07)
 
-        self.img08 = Button(top, image=self._img08, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuTelevision(top))
-        self.img09 = Label(top, image=self._img09, borderwidth=0)
-        self.img10 = Button(top, image=self._img10, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuTelefono(top))
-        self.img11 = Label(top, image=self._img11, borderwidth=0)
-        self.img12 = Button(top, image=self._img12, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuPeliculas(top))
-        self.img13 = Label(top, image=self._img13, borderwidth=0)
-        self.img14 = Button(top, image=self._img14, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.lampara(top))
+        self.img08 = Button(top, image=self._img08, command=lambda: self.menuTelevision(top))
+        self.img09 = Label(top, image=self._img09)
+        self.img10 = Button(top, image=self._img10, command=lambda: self.menuTelefono(top))
+        self.img11 = Label(top, image=self._img11)
+        self.img12 = Button(top, image=self._img12, command=lambda: self.menuPeliculas(top))
+        self.img13 = Label(top, image=self._img13)
+        self.img14 = Button(top, image=self._img14, command=lambda: self.lampara(top))
 
-        self.img15 = Label(top, image=self._img15, borderwidth=0)  # ,compound=CENTER,text="asd")
+        self.img15 = Label(top, image=self._img15)  # ,compound=CENTER,text="asd")
 
-        self.img16 = Button(top, image=self._img16, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.llamarEnfermera(top))
-        self.img17 = Label(top, image=self._img17, borderwidth=0)
-        self.img18 = Button(top, image=self._img18, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.alerta(top))
+        self.img16 = Button(top, image=self._img16, command=lambda: self.llamarEnfermera(top))
+        self.img17 = Label(top, image=self._img17)
+        self.img18 = Button(top, image=self._img18, command=lambda: self.alerta(top))
 
         self.img01.place(x=0, y=0)
 
@@ -109,6 +103,7 @@ class New_Toplevel:
         self.img16.place(x=0, y=191)
         self.img17.place(x=130, y=191)
         self.img18.place(x=354, y=191)
+        self.configurar(top)
 
     def menuCocina(self, top):
         self.clear(top)
@@ -119,11 +114,11 @@ class New_Toplevel:
         self._img05 = ImageTk.PhotoImage(Image.open("images/com_05.png"))
         self._img06 = ImageTk.PhotoImage(Image.open("images/com_06.png"))
 
-        self.img02 = Label(top, image=self._img02, borderwidth=0) # espaciadorV
-        self.img03 = Button(top, image=self._img03, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0", command=lambda: self.menuPrincipal(top))
-        self.img04 = Label(top, image=self._img04, borderwidth=0) # espaciadorH
-        self.img05 = Label(top, image=self._img05, borderwidth=0) # info
-        self.img06 = Label(top, image=self._img06, borderwidth=0) # espaciadorH
+        self.img02 = Label(top, image=self._img02) # espaciadorV
+        self.img03 = Button(top, image=self._img03, command=lambda: self.menuPrincipal(top))
+        self.img04 = Label(top, image=self._img04) # espaciadorH
+        self.img05 = Label(top, image=self._img05) # info
+        self.img06 = Label(top, image=self._img06) # espaciadorH
 
         self.img02.place(x=0, y=7)
         self.img03.place(x=7, y=7)
@@ -131,24 +126,32 @@ class New_Toplevel:
         self.img05.place(x=0, y=66)
         self.img06.place(x=0, y=78)
 
-        self.menuComun(top)
+        self.var = IntVar()
+        self._radio1 = ImageTk.PhotoImage(Image.open("images/radio1.png"))
+        self._radio2 = ImageTk.PhotoImage(Image.open("images/radio2.png"))
 
+        self.radio1 = Radiobutton(top, image=self._radio1, indicatoron=0, selectimage=self._radio2, variable=self.var, value=1)
+
+        self.radio2 = Radiobutton(top, image=self._radio1, indicatoron=0, selectimage=self._radio2, variable=self.var, value=2)
+        self.radio1.place(x=448, y=98, anchor=CENTER)
+        self.radio2.place(x=448, y=132, anchor=CENTER)
+
+
+        self.menuComun(top)
 
     def menuMedicamentos(self, top):
         self.clear(top)
-
         self._img02 = ImageTk.PhotoImage(Image.open("images/med_02.png"))
         self._img03 = ImageTk.PhotoImage(Image.open("images/med_03.png"))
         self._img04 = ImageTk.PhotoImage(Image.open("images/med_04.png"))
         self._img05 = ImageTk.PhotoImage(Image.open("images/med_05.png"))
         self._img06 = ImageTk.PhotoImage(Image.open("images/med_06.png"))
 
-        self.img02 = Label(top, image=self._img02, borderwidth=0) # espaciadorV
-        self.img03 = Button(top, image=self._img03, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
-                            command=lambda: self.menuPrincipal(top))
-        self.img04 = Label(top, image=self._img04, borderwidth=0) # espaciadorH
-        self.img05 = Label(top, image=self._img05, borderwidth=0) # info
-        self.img06 = Label(top, image=self._img06, borderwidth=0) # espaciadorH
+        self.img02 = Label(top, image=self._img02) # espaciadorV
+        self.img03 = Button(top, image=self._img03, command=lambda: self.menuPrincipal(top))
+        self.img04 = Label(top, image=self._img04) # espaciadorH
+        self.img05 = Label(top, image=self._img05) # info
+        self.img06 = Label(top, image=self._img06) # espaciadorH
 
         self.img02.place(x=0, y=7)
         self.img03.place(x=7, y=7)
@@ -157,7 +160,6 @@ class New_Toplevel:
         self.img06.place(x=0, y=78)
 
         self.menuComun(top)
-
 
     def menuCunero(self, top):
         self.clear(top)
@@ -168,12 +170,12 @@ class New_Toplevel:
         self._img05 = ImageTk.PhotoImage(Image.open("images/cun_05.png"))
         self._img06 = ImageTk.PhotoImage(Image.open("images/cun_06.png"))
 
-        self.img02 = Label(top, image=self._img02, borderwidth=0)  # espaciadorV
-        self.img03 = Button(top, image=self._img03, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
+        self.img02 = Label(top, image=self._img02)  # espaciadorV
+        self.img03 = Button(top, image=self._img03,
                             command=lambda: self.menuPrincipal(top))
-        self.img04 = Label(top, image=self._img04, borderwidth=0)  # espaciadorH
-        self.img05 = Label(top, image=self._img05, borderwidth=0)  # info
-        self.img06 = Label(top, image=self._img06, borderwidth=0)  # espaciadorH
+        self.img04 = Label(top, image=self._img04)  # espaciadorH
+        self.img05 = Label(top, image=self._img05)  # info
+        self.img06 = Label(top, image=self._img06)  # espaciadorH
 
         self.img02.place(x=0, y=7)
         self.img03.place(x=7, y=7)
@@ -184,24 +186,23 @@ class New_Toplevel:
         self.menuComun(top)
 
     def menuComun(self,top):
-        self.img01 = Label(top, image=self._img01, borderwidth=0)
+        self.img01 = Label(top, image=self._img01)
         self._img07 = ImageTk.PhotoImage(Image.open("images/com_07.png"))
         self._img16 = ImageTk.PhotoImage(Image.open("images/bot_01.png"))
         self._img17 = ImageTk.PhotoImage(Image.open("images/bot_02.png"))
         self._img18 = ImageTk.PhotoImage(Image.open("images/bot_03.png"))
-        self.img07 = Label(top, image=self._img07, borderwidth=0)
-        self.img16 = Button(top, image=self._img16, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
+        self.img07 = Label(top, image=self._img07)
+        self.img16 = Button(top, image=self._img16,
                             command=lambda: self.llamarEnfermera(top))
-        self.img17 = Label(top, image=self._img17, borderwidth=0)
-        self.img18 = Button(top, image=self._img18, borderwidth=0, highlightthickness=0, activebackground="#A0A0A0",
+        self.img17 = Label(top, image=self._img17)
+        self.img18 = Button(top, image=self._img18,
                             command=lambda: self.alerta(top))
         self.img01.place(x=0, y=0)
         self.img07.place(x=0, y=186)
         self.img16.place(x=0, y=191)
         self.img17.place(x=130, y=191)
         self.img18.place(x=354, y=191)
-
-
+        self.configurar(top)
 
     def menuTelevision(self, top):
         return
@@ -220,7 +221,6 @@ class New_Toplevel:
 
     def alerta(self, top):
         return
-
 
 
 if __name__ == '__main__':
