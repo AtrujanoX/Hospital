@@ -2,7 +2,6 @@ from tkinter import *
 from PIL import ImageTk, Image
 
 def vp_start_gui():
-    '''Starting point when module is the main routine.'''
     global val, w, root
     root = Tk()
     top = New_Toplevel(root)
